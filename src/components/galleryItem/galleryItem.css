@@ -42,6 +42,10 @@
     border: none;
 }
 
+.galleryItem:hover .saveButton:hover{
+background-color: rgb(198, 0, 0);
+
+}
 
 .galleryItem:hover .overlayIcons {
     display: block;

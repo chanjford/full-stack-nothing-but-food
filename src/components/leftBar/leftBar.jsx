@@ -1,28 +1,29 @@
+import { Link } from 'react-router'
 import './leftBar.css'
 
 const LeftBar = () => {
     return (
         <div className='leftBar'>
             <div className='menuIcons'>
-                <a href="/" className='menuIcon'>
+                <Link to="/" className='menuIcon'>
                 <img src="/general/logo.png" alt="" className='logo'/>
-                </a>
-                <a href="/" className='menuIcon'>
+                </Link>
+                <Link to="/" className='menuIcon'>
                 <img src="/general/home.svg" alt="" />
-                </a>
-                <a href="/" className='menuIcon'>
+                </Link>
+                <Link to="/create" className='menuIcon'>
                 <img src="/general/create.svg" alt="" />
-                </a>
-                <a href="/" className='menuIcon'>
+                </Link>
+                <Link to="/" className='menuIcon'>
                 <img src="/general/updates.svg" alt="" />
-                </a>
-                <a href="/" className='menuIcon'>
+                </Link>
+                <Link to="/" className='menuIcon'>
                 <img src="/general/messages.svg" alt="" />
-                </a>
+                </Link>
             </div>
-                <a href="/" className='menuIcon'>
+                <Link to="/" className='menuIcon'>
                 <img src="/general/settings.svg" alt="" />
-                </a>
+                </Link>
         </div>
     )
 }
