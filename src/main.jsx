@@ -9,10 +9,21 @@ import SearchPage from './routes/searchpage/searchPage'
 import ProfilePage from './routes/profilepage/profilePage'
 import MainLayout from './routes/layouts/mainLayout'
 import { BrowserRouter, Routes, Route } from 'react-router'
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
+// Create a client
+const queryClient = new QueryClient()
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <QueryClientProvider client={queryClient}>
     <BrowserRouter>
       <Routes>
           <Route element={<MainLayout/>}>
@@ -25,5 +36,6 @@ createRoot(document.getElementById('root')).render(
           <Route path='/auth' element={<AuthPage />} />
       </Routes>
     </BrowserRouter>
+    </QueryClientProvider>
   </StrictMode>,
 )

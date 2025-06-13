@@ -17,7 +17,7 @@ const GalleryItem = ({item}) =>{
            
 
             {/**Links to the image's page with all the details */}
-            <Link to={`/bite/${item.id}`} className='overlay'></Link>
+            <Link to={`/bite/${item._id}`} className='overlay'></Link>
             
             {/* 
             

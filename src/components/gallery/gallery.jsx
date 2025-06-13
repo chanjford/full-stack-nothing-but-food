@@ -1,5 +1,7 @@
 import './gallery.css'
 import GalleryItem from '../galleryItem/galleryItem'
+import { useQuery } from '@tanstack/react-query'
+import axios from 'axios'
 
 //change the grid templet columns in gallery.css .gallery{} from 7 if you want less columns on desktop screens
 // 3 seems to looks the best without being overwhelming, you'll have to find something to put on the right column
@@ -103,12 +105,27 @@ const items = [
     },
 ]
 
+const fetchPins = async () =>{
+    const res = await axios.get(`${import.meta.env.VITE_API_ENDPOINT}/pins`)
+    return res.data
+}
+
 const Gallery = () => {
+    const { isPending, error, data} = useQuery({ 
+        queryKey: ['pins'], 
+        queryFn: fetchPins, 
+    })
+
+    if(error) return "An error has occurred: " + error
+    if(isPending) return "Loading ... "
+
+    
+
     return (
 
         <div className='gallery'>
-            {items.map(item=>(
-                <GalleryItem key={item.id} item={item}/>
+            {data?.map(item=>(
+                <GalleryItem key={item._id} item={item}/>
             ))}
         </div>
     )
